@@ -15,20 +15,21 @@ Bu repository, bilişim öğretmenleri ve Python öğrenmek isteyen öğrenciler
 ### Orta Seviye
 7. **07_listeler_tuple** - Listeler ve Tuple'lar
 8. **08_sozlukler_kumeler** - Sözlükler ve Kümeler
-9. **09_stringler** - String İşlemleri
-10. **10_fonksiyonlar** - Fonksiyonlar ve Kapsamlar
+9. **09_fonksiyonlar** - Fonksiyonlar ve Kapsamlar
+10. **10_stringler** - String İşlemleri
 11. **11_dosya_islemleri** - Dosya Okuma ve Yazma
 12. **12_hata_yonetimi** - Hata Yakalama ve İşleme
 
 ### İleri Seviye
 13. **13_moduller_paketler** - Modüller ve Paketler
-14. **14_nesne_yonelimli_programlama** - OOP Konseptleri
+14. **14_tarih_zaman** - Tarih ve Zaman İşlemleri
 15. **15_ileri_konular** - İleri Python Konuları
 
 ### Uygulamalı Projeler
-16. **16_projeler** - Pratik Projeler
-17. **17_veri_analizi** - Veri Analizi (Pandas, NumPy)
-18. **18_web_gelistirme** - Web Geliştirme (Flask/Django)
+16. **16_nesne_yonelimli_programlama** - OOP Konseptleri
+17. **17_projeler** - Pratik Projeler
+18. **18_veri_analizi** - Veri Analizi (Pandas, NumPy)
+19. **19_web_gelistirme** - Web Geliştirme (Flask/Django)
 
 ## 🎯 Hedef Kitle
 - Lise ve üniversite öğrencileri
