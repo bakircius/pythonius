@@ -12,20 +12,6 @@ Bu klasör Python'da tarih ve zaman işlemleri konularını kapsamlı bir şekil
 - **Takvim İşlemleri**: calendar modülü kullanımı
 - **Performans Ölçümü**: time modülü ile süre hesaplama
 
-```python
-# Temel datetime kullanımı
-import datetime
-import pytz
-
-# Şimdiki zaman
-now = datetime.datetime.now()
-utc_now = datetime.datetime.utcnow()
-
-# Timezone ile çalışma
-istanbul_tz = pytz.timezone('Europe/Istanbul')
-istanbul_time = datetime.datetime.now(istanbul_tz)
-```
-
 ### 2. ileri_seviye_tarih.py
 - **Relativedelta**: Gelişmiş tarih hesaplamaları
 - **İş Günü Hesaplaması**: Tatil ve hafta sonu hesapları
@@ -33,18 +19,6 @@ istanbul_time = datetime.datetime.now(istanbul_tz)
 - **Natural Language**: Doğal dil ile tarih parsing
 - **Veri Analizi**: Pandas ile zaman serisi analizi
 - **Timezone Conversion**: Karmaşık timezone dönüşümleri
-
-```python
-# Gelişmiş tarih işlemleri
-from dateutil.relativedelta import relativedelta
-from dateutil import rrule
-
-# 3 ay sonra
-future_date = datetime.datetime.now() + relativedelta(months=3)
-
-# Recurring pattern
-rule = rrule.rrule(rrule.WEEKLY, byweekday=rrule.MO, count=10)
-```
 
 ### 3. zaman_dilimi_yonetimi.py
 - **Global Timezone**: Dünya zaman dilimleri yönetimi
@@ -54,18 +28,6 @@ rule = rrule.rrule(rrule.WEEKLY, byweekday=rrule.MO, count=10)
 - **Thread Safety**: Çoklu thread zaman yönetimi
 - **Business Hours**: İş saati hesaplamaları
 
-```python
-# Global zaman yönetimi
-class GlobalTimeManager:
-    def __init__(self):
-        self.user_timezones = {}
-        self.default_tz = pytz.UTC
-    
-    def convert_for_user(self, utc_time, user_id):
-        user_tz = self.user_timezones.get(user_id, self.default_tz)
-        return utc_time.astimezone(user_tz)
-```
-
 ### 4. pratik_uygulamalar.py
 - **Event Calendar**: Kapsamlı etkinlik takvimi
 - **Log Analysis**: Zaman bazlı log analizi
@@ -73,22 +35,6 @@ class GlobalTimeManager:
 - **Scheduling System**: Görev zamanlama sistemi
 - **Time Series Analysis**: Zaman serisi istatistikleri
 - **Anomaly Detection**: Zaman bazlı anomali tespiti
-
-```python
-# Etkinlik takvimi sistemi
-class EventCalendar:
-    def __init__(self, timezone='UTC'):
-        self.timezone = pytz.timezone(timezone)
-        self.events = {}
-    
-    def add_event(self, title, start, end, category='other'):
-        # Etkinlik ekleme logic'i
-        pass
-    
-    def find_conflicts(self, start, end):
-        # Çakışma kontrolü
-        pass
-```
 
 ## 🎯 Öğrenme Hedefleri
 
@@ -116,43 +62,13 @@ class EventCalendar:
 ## 📊 Pratik Örnekler
 
 ### 1. Etkinlik Planlayıcısı
-```python
-# Müsait zaman bulma
-def find_available_slots(calendar, date, duration_minutes):
-    daily_events = calendar.get_events_for_date(date)
-    business_start = 9  # 09:00
-    business_end = 17   # 17:00
-    
-    available_slots = []
-    # Implementation...
-    return available_slots
-```
+Etkinlik takvimi sistemi ile müsait zaman slotları bulma, çakışmaları tespit etme ve otomatik planlama yapma özelliği.
 
 ### 2. Log Analizi
-```python
-# Zaman bazlı log istatistikleri
-def analyze_hourly_traffic(logs):
-    hourly_stats = defaultdict(int)
-    
-    for log in logs:
-        hour = log['timestamp'].hour
-        hourly_stats[hour] += 1
-    
-    return dict(hourly_stats)
-```
+Zaman bazlı log istatistikleri, trafik analizi ve performans değerlendirmesi için comprehensive araçlar.
 
 ### 3. Performance Monitor
-```python
-# Süre ölçümü decorator
-def measure_time(func):
-    def wrapper(*args, **kwargs):
-        start = time.perf_counter()
-        result = func(*args, **kwargs)
-        end = time.perf_counter()
-        print(f"{func.__name__}: {(end-start)*1000:.2f}ms")
-        return result
-    return wrapper
-```
+Süre ölçümü, benchmarking ve sistem performansı izleme için decorator ve monitoring araçları.
 
 ## 🛠️ Kullanılan Kütüphaneler
 
@@ -167,35 +83,22 @@ def measure_time(func):
 - `dateutil`: Gelişmiş tarih işlemleri
 - `pandas`: Zaman serisi analizi (optional)
 
+Gerekli kütüphaneleri yüklemek için:
 ```bash
-# Gerekli kütüphaneleri yükle
 pip install pytz python-dateutil pandas
 ```
 
 ## ⚡ Performans İpuçları
 
 ### Timezone İşlemleri
-```python
-# ✅ İyi: UTC'de sakla, display'de dönüştür
-utc_time = datetime.utcnow()
-user_time = utc_time.replace(tzinfo=pytz.UTC).astimezone(user_tz)
-
-# ❌ Kötü: Her seferinde timezone hesapla
-local_time = datetime.now()  # Timezone bilgisi yok
-```
+- UTC'de sakla, display'de dönüştür
+- Her seferinde timezone hesaplamaktan kaçın
+- Timezone bilgisi olmayan datetime'ler kullanmayın
 
 ### Büyük Veri Setleri
-```python
-# ✅ İyi: Pandas ile vectorized işlemler
-df['datetime'] = pd.to_datetime(df['timestamp'])
-hourly_stats = df.groupby(df['datetime'].dt.hour).size()
-
-# ❌ Kötü: Loop ile tek tek işlem
-hourly_stats = {}
-for record in records:
-    hour = parse_datetime(record['timestamp']).hour
-    hourly_stats[hour] = hourly_stats.get(hour, 0) + 1
-```
+- Pandas ile vectorized işlemler tercih edin
+- Loop ile tek tek işlem yapmaktan kaçının
+- Zaman serisi analizi için optimize edilmiş yöntemler kullanın
 
 ## 🚨 Dikkat Edilecek Noktalar
 
