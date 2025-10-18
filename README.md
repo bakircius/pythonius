@@ -29,7 +29,6 @@ Bu repository, bilişim öğretmenleri ve Python öğrenmek isteyen öğrenciler
 16. **16_nesne_yonelimli_programlama** - OOP Konseptleri
 17. **17_projeler** - Pratik Projeler
 18. **18_veri_analizi** - Veri Analizi (Pandas, NumPy)
-19. **19_web_gelistirme** - Web Geliştirme (Flask/Django)
 
 ## 🎯 Hedef Kitle
 - Lise ve üniversite öğrencileri

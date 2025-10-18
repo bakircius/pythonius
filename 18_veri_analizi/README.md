@@ -22,7 +22,7 @@
 - `veri_temizleme.py` - Data cleaning techniques
 - `matplotlib_grafikleri.py` - Temel görselleştirme
 - `seaborn_ileri_grafikler.py` - İleri görselleştirme
-- `veri_analiz_projesi/` - Gerçek veri seti analizi
+- `veri_analiz_projesi.py` - Veri analizi
 
 ## Gerekli Kütüphaneler
 ```bash
